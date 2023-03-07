@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "pep-pre-commit-hooks"
+version = "0.1.0"
+description = "Public pre-commit hooks"
+authors = ["Lorenz Walthert <lorenz.walthert@icloud.com>"]
+readme = "README.md"
+packages = [
+    {include = "pep_pre_commit_hooks"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.scripts]
+verify-git-email = "pep_pre_commit_hooks.core:cli_verify_git_email"
+
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.1.1"
+commitizen = "^2.42.1"
+
+
+[tool.ruff]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = [
+    "F401", # unused-import
+]
+
+[tool.mypy]
+
+disallow_incomplete_defs = true
+disallow_untyped_defs = true
+exclude = [
+    "^tests\\/.*$",
+]
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
