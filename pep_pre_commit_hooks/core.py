@@ -1,14 +1,13 @@
 import argparse
 import re
 import subprocess
-import typing
 
 
-def verify_git_email(domain: str) -> typing.Literal[True]:
+def verify_git_email(domain: str) -> None:
     command = ("git", "config", "--get", "user.email")
     output = subprocess.check_output(command).decode().strip()
     if re.search(f".*@{re.escape(domain)}$", output):
-        return True
+        return
     else:
         raise ChildProcessError(
             f"Output for command `{' '.join(command)}` returned {output}, "
@@ -16,7 +15,7 @@ def verify_git_email(domain: str) -> typing.Literal[True]:
         )
 
 
-def cli_verify_git_email() -> typing.Literal[True]:
+def cli_verify_git_email() -> None:
     parser = argparse.ArgumentParser(
         prog="verify email",
         description=(
@@ -26,4 +25,4 @@ def cli_verify_git_email() -> typing.Literal[True]:
     )
     parser.add_argument("--domain", required=True)
     args = parser.parse_args()
-    return verify_git_email(domain=args.domain)
+    verify_git_email(domain=args.domain)
