@@ -1,3 +1,23 @@
 Public pre-commit hooks developed at Ponte Energy Partners
 
-Please see `.pre-commit-hooks.yaml` for which hooks are available.
+You can include the hooks like this in your repo:
+
+```yaml
+# in .pre-commit-config.yaml in your git repo root
+repos:
+
+  - repo: https://github.com/Ponte-Energy-Partners/pre-commit-hooks
+    rev: cf2a8b8
+    hooks:
+      - id: verify-git-email
+        args: [--domain=ponte-energy.de]
+      - id: mypy-with-poetry
+```
+
+The hook `mypy-with-poetry` requires `files` to be specified in `pyproject.toml`, e.g. like this:
+
+```toml
+[tool.mypy]
+
+files = "."
+```
