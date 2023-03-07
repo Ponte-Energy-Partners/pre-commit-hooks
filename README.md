@@ -7,7 +7,7 @@ You can include the hooks like this in your repo:
 repos:
 
   - repo: https://github.com/Ponte-Energy-Partners/pre-commit-hooks
-    rev: cf2a8b8
+    rev: 4305ba8
     hooks:
       - id: verify-git-email
         args: [--domain=ponte-energy.de]
