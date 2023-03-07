@@ -10,6 +10,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.10"
+pytest-cov = "^4.0.0"
 
 [tool.poetry.scripts]
 verify-git-email = "pep_pre_commit_hooks.core:cli_verify_git_email"
