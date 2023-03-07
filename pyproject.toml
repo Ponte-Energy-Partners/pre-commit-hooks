@@ -10,7 +10,6 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
-pytest-cov = "^4.0.0"
 
 [tool.poetry.scripts]
 verify-git-email = "pep_pre_commit_hooks.core:cli_verify_git_email"
@@ -22,6 +21,7 @@ commitizen = "^2.42.1"
 black = "^23.1.0"
 ruff = "^0.0.254"
 pytest = "^7.2.2"
+pytest-cov = "^4.0.0"
 
 
 [tool.ruff.per-file-ignores]
