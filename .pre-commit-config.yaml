@@ -44,12 +44,7 @@ repos:
     rev: 23.1.0
     hooks:
       - id: black
-  - repo: local
+  - repo: https://github.com/Ponte-Energy-Partners/pre-commit-hooks
+    rev: 4305ba8
     hooks:
-      - id: mypy
-        name: mypy
-        language: system
-        entry: poetry run mypy .
-        types_or: [ python, pyi ]
-        require_serial: true
-        pass_filenames: false
+      - id: mypy-with-poetry
