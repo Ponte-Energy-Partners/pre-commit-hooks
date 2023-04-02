@@ -25,14 +25,13 @@ Runs mypy with your system's `poetry` executable (through `language: system`). T
     ```
 * or supply `.` as an additional argument passed to the hook in `.pre-commit-config.yaml` like this:
 
-    ```toml
+    ```yaml
     repos:
       - repo: https://github.com/Ponte-Energy-Partners/pre-commit-hooks
         rev: 4305ba8
         hooks:
         - id: mypy-with-poetry
           args: [.]
-
     ```
 
 
