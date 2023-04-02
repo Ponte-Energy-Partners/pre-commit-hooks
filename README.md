@@ -14,7 +14,7 @@ This hook can serve two use cases:
 
 ### `mypy-with-poetry`
 
-Runs mypy with your system's `poetry` executable (through `language: system`). The advantage over the [mypy mirror repo](https://github.com/pre-commit/mirrors-mypy#using-mypy-with-pre-commit) is that the virtual environment configured with poetry gets used instead of one that pre-commit manages (with `language: python`). That way, you don't need to configure `additional_dependencies:` for the mypy hook to work. The hook `mypy-with-poetry` requires `files` to be specified in `pyproject.toml`, e.g. like this:
+Runs mypy with your system's `poetry` executable (through `language: system`). The advantage over the [mypy mirror repo](https://github.com/pre-commit/mirrors-mypy#using-mypy-with-pre-commit) is that the virtual environment configured with poetry gets used instead of one that pre-commit manages (with `language: python`). That way, you don't need to configure `additional_dependencies:` for the mypy hook to work. The hook `mypy-with-poetry` requires [`files`](https://mypy.readthedocs.io/en/stable/config_file.html#confval-files) to be specified in `pyproject.toml`, e.g. like this:
 
     ```toml
     [tool.mypy]
