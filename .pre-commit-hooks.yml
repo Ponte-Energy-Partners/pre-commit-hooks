@@ -1,0 +1,13 @@
+- id: mypy-with-poetry
+  name: mypy with poetry
+  language: system
+  entry: poetry run mypy
+  types_or: [ python, pyi ]
+  require_serial: true
+  pass_filenames: false
+- id: verify-comitter-email
+  name: Committer's e-mail matches certain criteria
+  language: system
+  entry: bash -c 'git config --get user.email | grep -e @ponte-energy\.de'
+  pass_filenames: false
+  always_run: true
