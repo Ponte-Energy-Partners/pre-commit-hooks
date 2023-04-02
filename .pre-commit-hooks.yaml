@@ -1,0 +1,14 @@
+- id: mypy-with-poetry
+  name: mypy with poetry
+  language: system
+  entry: poetry run mypy
+  types_or: [ python, pyi ]
+  require_serial: true
+  pass_filenames: false
+- id: verify-git-email
+  name: Committer's email matches certain criteria
+  language: python
+  entry: verify-git-email
+  args: [--domain=users.noreply.github.com]
+  pass_filenames: false
+  always_run: true
