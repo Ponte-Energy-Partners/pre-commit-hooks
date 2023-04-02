@@ -30,6 +30,5 @@ def test_verify_domain():
 def test_failed_verify_domain():
     with temp_git_dir():
         subprocess.check_call(("git", "config", "user.email", "test@me.com"))
-        with pytest.raises(ChildProcessError) as execinfo:
+        with pytest.raises(ChildProcessError, match="but an e-mail address matching "):
             core.verify_git_email("icloud.com")
-        assert execinfo.match("but an e-mail address matching ")
