@@ -24,7 +24,7 @@ def temp_git_dir():
 def test_verify_domain():
     with temp_git_dir():
         subprocess.check_call(("git", "config", "user.email", "test@icloud.com"))
-        assert core.verify_git_email("icloud.com")
+        assert core.verify_git_email("icloud.com") is None
 
 
 def test_failed_verify_domain():
