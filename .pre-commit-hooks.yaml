@@ -6,7 +6,7 @@
   require_serial: true
   pass_filenames: false
 - id: verify-git-email
-  name: Committer's e-mail matches certain criteria
+  name: Committer's email matches certain criteria
   language: python
   entry: verify-git-email
   args: [--domain=users.noreply.github.com]

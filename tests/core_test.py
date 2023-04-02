@@ -37,6 +37,6 @@ def test_verify_domain():
 def test_failed_verify_domain():
     with pytest.raises(
         verify_git_email.DomainMisconfiguredError,
-        match="but an e-mail address matching ",
+        match="but an email address matching ",
     ):
         verify_git_email.verify_git_email("hotmail.com")
