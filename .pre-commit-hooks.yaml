@@ -9,6 +9,6 @@
   name: Committer's e-mail matches certain criteria
   language: python
   entry: verify-git-email
-  args: [--domain=put-your-domain-here.com]
+  args: [--domain=users.noreply.github.com]
   pass_filenames: false
   always_run: true
