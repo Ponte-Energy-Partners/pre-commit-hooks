@@ -1,17 +1,16 @@
 import os
+import pathlib
 import subprocess
 
 import pytest
 
-import pep_pre_commit_hooks.core as core
+from pep_pre_commit_hooks import verify_git_email
 
 
-@pytest.fixture
-def ch_tempdir(tmp_path):
-    """
-    Temporarily change the working directory to a temporary directory.
-    """
-    cwd = os.getcwd()
+@pytest.fixture()
+def _ch_tempdir(tmp_path):
+    """Temporarily change the working directory to a temporary directory."""
+    cwd = pathlib.Path.cwd()
     try:
         os.chdir(tmp_path)
         yield
@@ -19,20 +18,25 @@ def ch_tempdir(tmp_path):
         os.chdir(cwd)
 
 
-@pytest.fixture
-def temp_git_dir(ch_tempdir):
+@pytest.fixture()
+def _git_init():
     subprocess.check_call(("git", "init"))
 
 
-@pytest.fixture
-def temp_git_dir_icloud_email(temp_git_dir):
+@pytest.fixture()
+def _git_config_icloud_email():
     subprocess.check_call(("git", "config", "user.email", "test@icloud.com"))
 
 
-def test_verify_domain(temp_git_dir_icloud_email):
-    assert core.verify_git_email("icloud.com") is None
+@pytest.mark.usefixtures("_ch_tempdir", "_git_init", "_git_config_icloud_email")
+def test_verify_domain():
+    assert verify_git_email.verify_git_email("icloud.com") is None
 
 
-def test_failed_verify_domain(temp_git_dir_icloud_email):
-    with pytest.raises(ChildProcessError, match="but an e-mail address matching "):
-        core.verify_git_email("hotmail.com")
+@pytest.mark.usefixtures("_ch_tempdir", "_git_init", "_git_config_icloud_email")
+def test_failed_verify_domain():
+    with pytest.raises(
+        verify_git_email.DomainMisconfiguredError,
+        match="but an e-mail address matching ",
+    ):
+        verify_git_email.verify_git_email("hotmail.com")
