@@ -7,7 +7,8 @@
   pass_filenames: false
 - id: verify-comitter-email
   name: Committer's e-mail matches certain criteria
-  language: system
-  entry: bash -c 'git config --get user.email | grep -e @ponte-energy\.de'
+  language: python
+  entry: verify-git-email
+  args: [--domain=put-your-domain-here.com]
   pass_filenames: false
   always_run: true
