@@ -8,11 +8,10 @@ def verify_git_email(domain: str) -> None:
     output = subprocess.check_output(command).decode().strip()
     if re.search(f".*@{re.escape(domain)}$", output):
         return
-    else:
-        raise ChildProcessError(
-            f"`{' '.join(command)}` returned {output}, "
-            f"but an e-mail address matching `{domain}` was expected."
-        )
+    raise ChildProcessError(
+        f"`{' '.join(command)}` returned {output}, "
+        f"but an e-mail address matching `{domain}` was expected."
+    )
 
 
 def cli_verify_git_email() -> None:
