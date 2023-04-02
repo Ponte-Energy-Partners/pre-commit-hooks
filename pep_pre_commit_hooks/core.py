@@ -10,7 +10,7 @@ def verify_git_email(domain: str) -> None:
         return
     else:
         raise ChildProcessError(
-            f"Output for command `{' '.join(command)}` returned {output}, "
+            f"`{' '.join(command)}` returned {output}, "
             f"but an e-mail address matching `{domain}` was expected."
         )
 
