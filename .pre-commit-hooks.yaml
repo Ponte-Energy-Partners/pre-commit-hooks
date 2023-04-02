@@ -5,7 +5,7 @@
   types_or: [ python, pyi ]
   require_serial: true
   pass_filenames: false
-- id: verify-comitter-email
+- id: verify-git-email
   name: Committer's e-mail matches certain criteria
   language: python
   entry: verify-git-email
