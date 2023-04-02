@@ -23,7 +23,7 @@ Runs mypy with your system's `poetry` executable (through `language: system`). T
 
     files = "."
     ```
-* or supply `.` as an additional argument passed to the hook in `.pre-commit-config.yaml` like this:
+* or `.` to be passed as an additional argument to the hook in `.pre-commit-config.yaml` like this:
 
     ```yaml
     repos:
