@@ -45,7 +45,7 @@ repos:
     hooks:
       - id: black
   - repo: https://github.com/Ponte-Energy-Partners/pre-commit-hooks
-    rev: 658055f6b3a13ce4804361ecc090cc646c6ee016
+    rev: f92056a3fd0c8836c6fa4137faf72af2000637a1
     hooks:
       - id: mypy-with-poetry
       - id: verify-git-email
