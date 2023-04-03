@@ -12,7 +12,7 @@ packages = [
 python = "^3.9"
 
 [tool.poetry.scripts]
-verify-git-email = "pep_pre_commit_hooks.core:cli_verify_git_email"
+verify-git-email = "pep_pre_commit_hooks.verify_git_email:cli_verify_git_email"
 
 
 [tool.poetry.group.dev.dependencies]
