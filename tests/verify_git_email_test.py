@@ -15,12 +15,3 @@ def test_failed_verify_domain():
         match="but an email address matching ",
     ):
         verify_git_email.verify_git_email("hotmail.com")
-
-
-@pytest.fixture(params=(("--domain", "@live.com"),))
-def domain(request):
-    return request.param
-
-
-def test__parse_args(domain):
-    assert verify_git_email._parse_args(domain).domain == domain[1]
