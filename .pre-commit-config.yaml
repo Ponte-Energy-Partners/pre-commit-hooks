@@ -37,14 +37,15 @@ repos:
       - id: commitizen
         stages: [ commit-msg ]
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: v0.0.254
+    rev: v0.0.260
     hooks:
       - id: ruff
   - repo: https://github.com/psf/black
-    rev: 23.1.0
+    rev: 23.3.0
     hooks:
       - id: black
   - repo: https://github.com/Ponte-Energy-Partners/pre-commit-hooks
-    rev: 4305ba8
+    rev: 658055f6b3a13ce4804361ecc090cc646c6ee016
     hooks:
       - id: mypy-with-poetry
+      - id: verify-git-email
