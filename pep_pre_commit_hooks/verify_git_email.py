@@ -1,30 +1,25 @@
 """Verify a user's git email address."""
-import argparse
 import re
 import subprocess
 
+import typer
 
-def verify_git_email(domain: str) -> None:
+app = typer.Typer()
+
+_default_domain = typer.Option(
+    default=None,
+    help="Domain name (excluding @) the email has to match",
+)
+
+
+@app.command()
+def verify_git_email(domain: str = _default_domain) -> None:
     """Ensure that the currently active git config's email matches a domain."""
     command = ("git", "config", "--get", "user.email")
     output = subprocess.check_output(command).decode().strip()
     if re.search(f".*@{re.escape(domain)}$", output):
         return
     raise DomainMisconfiguredError(command=command, output=output, domain=domain)
-
-
-def cli_verify_git_email() -> None:
-    """Command-line exposable to verify the git email."""
-    parser = argparse.ArgumentParser(
-        prog="verify email",
-        description=(
-            "Verify that the domain of the email address configured "
-            "with git matches a domain"
-        ),
-    )
-    parser.add_argument("--domain", required=True)
-    args = parser.parse_args()
-    verify_git_email(domain=args.domain)
 
 
 class DomainMisconfiguredError(Exception):

@@ -10,9 +10,10 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.9"
+typer = "^0.7.0"
 
 [tool.poetry.scripts]
-verify-git-email = "pep_pre_commit_hooks.verify_git_email:cli_verify_git_email"
+verify-git-email = "pep_pre_commit_hooks.verify_git_email:app"
 
 
 [tool.poetry.group.dev.dependencies]
