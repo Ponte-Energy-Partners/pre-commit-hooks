@@ -1,3 +1,8 @@
+[tool.commitizen]
+update_changelog_on_bump = true
+version_files = [
+    "pyproject.toml:^version"
+]
 [tool.poetry]
 name = "pep-pre-commit-hooks"
 version = "0.1.0"
