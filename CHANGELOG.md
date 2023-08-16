@@ -1,3 +1,9 @@
+## 1.0.1 (2023-08-16)
+
+### Fix
+
+- **verify-git-email**: since multiple arguments require --domains d --domains d and that is too verbose and domains shoudl then be singular, we go for --domains d1,d2
+
 ## 1.0.0 (2023-08-16)
 
 ### Feat
