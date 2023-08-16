@@ -6,19 +6,20 @@ import typer
 
 app = typer.Typer()
 
-_default_domain = typer.Option(
-    default=[],
-    help="Domain name (excluding @) the email has to match",
+_default_domains = typer.Option(
+    default="",
+    help="Comma-separated list of domai names (excluding @) the email has to match",
 )
 
 
 @app.command()
-def verify_git_email(domains: list[str] = _default_domain) -> None:
+def verify_git_email(domains: str = _default_domains) -> None:
     """Ensure that the currently active git config's email matches a domain."""
     if not domains or len(domains) < 1:
         raise ValueError("`domains` is required")  # noqa: EM101, TRY003
+    domains_ = domains.split(",")
     command = ("git", "config", "--get", "user.email")
-    for domain in domains:
+    for domain in domains_:
         output = subprocess.check_output(command).decode().strip()
         if re.search(f".*@{re.escape(domain)}$", output):
             return
