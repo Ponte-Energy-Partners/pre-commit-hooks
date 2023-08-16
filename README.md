@@ -8,7 +8,7 @@ Public [pre-commit hooks](https://pre-commit.com/) developed at Ponte Energy Par
 This hook verifies that a committer's email address matches a domain.
 
 This hook can serve two use cases:
-- Ensure people hide their private email addresses, e.g. by using the respective [GitHub setting](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address). `--domain` is set to `users.noreply.github.com` by default to cover this use case. Note that GitHub provides a way to [block pushes that contain private email addresses](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address) that are enforced on push, while this hook enforces on commit.
+- Ensure people hide their private email addresses, e.g. by using the respective [GitHub setting](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address). `--domains` is set to `users.noreply.github.com` by default to cover this use case. Note that GitHub provides a way to [block pushes that contain private email addresses](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/blocking-command-line-pushes-that-expose-your-personal-email-address) that are enforced on push, while this hook enforces on commit.
 
 - Ensure that people within an organisation commit with their org email address instead of their private address. This is most useful for private repositories where the email does not need to be hidden and where people should be prevented to accidentially commit with their private email address.
 
@@ -47,6 +47,6 @@ repos:
     rev: 4305ba8
     hooks:
       - id: verify-git-email
-        args: [--domain=ponte-energy.de]
+        args: [--domains=ponte-energy.de]
       - id: mypy-with-poetry
 ```
