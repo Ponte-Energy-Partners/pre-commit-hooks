@@ -5,7 +5,10 @@ from pep_pre_commit_hooks import verify_git_email
 
 @pytest.mark.usefixtures("_ch_tempdir", "_git_init", "_git_config_icloud_email")
 def test_verify_domain():
-    assert verify_git_email.verify_git_email("icloud.com") is None
+    # one domain
+    assert verify_git_email.verify_git_email(["icloud.com"]) is None
+    # multiple domains
+    assert verify_git_email.verify_git_email(["icloud.com", "gmail.com"]) is None
 
 
 @pytest.mark.usefixtures("_ch_tempdir", "_git_init", "_git_config_icloud_email")
