@@ -1,3 +1,9 @@
+## 1.0.2 (2023-08-21)
+
+### Fix
+
+- **verify-git-email**: only fail if no email address matches, don't fail eagerly on first
+
 ## 1.0.1 (2023-08-16)
 
 ### Fix

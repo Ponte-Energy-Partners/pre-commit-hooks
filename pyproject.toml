@@ -3,13 +3,13 @@
 
 [tool.commitizen]
 update_changelog_on_bump = true
-version = "1.0.1"
+version = "1.0.2"
 version_files = [
     "pyproject.toml"
 ]
 [tool.poetry]
 name = "pep-pre-commit-hooks"
-version = "1.0.1"
+version = "1.0.2"
 description = "Public pre-commit hooks"
 authors = ["Lorenz Walthert <lorenz.walthert@icloud.com>"]
 readme = "README.md"
