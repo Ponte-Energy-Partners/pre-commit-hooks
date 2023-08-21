@@ -20,7 +20,7 @@ def test_not_correctly_configured_email():
     assert isinstance(result.exception, verify_git_email.DomainMisconfiguredError)
     expected_msg = (
         "`git config --get user.email` returned test@icloud.com, "
-        "but an email address matching `gmail.com` was expected.",
+        "but an email address matching one of `['gmail.com']` was expected.",
     )
     assert result.exception.args == expected_msg
 

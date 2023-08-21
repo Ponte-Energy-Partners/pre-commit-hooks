@@ -19,11 +19,14 @@ def verify_git_email(domains: str = _default_domains) -> None:
         raise ValueError("`domains` is required")  # noqa: EM101, TRY003
     domains_ = domains.split(",")
     command = ("git", "config", "--get", "user.email")
+    matched = 0
     for domain in domains_:
         output = subprocess.check_output(command).decode().strip()
         if re.search(f".*@{re.escape(domain)}$", output):
-            return
-        raise DomainMisconfiguredError(command=command, output=output, domain=domain)
+            matched += 1
+
+    if not matched:
+        raise DomainMisconfiguredError(command=command, output=output, domains=domains_)
 
 
 class DomainMisconfiguredError(Exception):
@@ -33,11 +36,11 @@ class DomainMisconfiguredError(Exception):
         self: "DomainMisconfiguredError",
         command: tuple[str, ...],
         output: str,
-        domain: str,
+        domains: list[str],
     ) -> None:
         """Initiate the error with input command and output as well as the expected domain."""
         msg = (
             f"`{' '.join(command)}` returned {output}, "
-            f"but an email address matching `{domain}` was expected."
+            f"but an email address matching one of `{domains}` was expected."
         )
         super().__init__(msg)
