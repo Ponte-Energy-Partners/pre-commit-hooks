@@ -7,6 +7,9 @@ version = "1.0.2"
 version_files = [
     "pyproject.toml"
 ]
+changelog_incremental = true
+changelog_start_rev = "1179d2ca8ba8f989b93f24443acc118d55de3b4c"
+
 [tool.poetry]
 name = "pep-pre-commit-hooks"
 version = "1.0.2"
