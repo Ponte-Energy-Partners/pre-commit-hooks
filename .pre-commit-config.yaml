@@ -47,3 +47,7 @@ repos:
     hooks:
       - id: mypy-with-poetry
       - id: verify-git-email
+
+default_install_hook_types:
+  - commit-msg
+  - pre-commit
