@@ -1,3 +1,9 @@
+## 1.0.3 (2024-03-19)
+
+### Fix
+
+- `default_language_version` is not a valid key in `.pre-commit-hook.yaml`
+
 ## 1.0.2 (2023-08-21)
 
 ### Fix
