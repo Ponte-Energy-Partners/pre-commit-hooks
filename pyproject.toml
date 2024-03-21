@@ -21,7 +21,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9"
 typer = "^0.7.0"
 
 [tool.poetry.scripts]
