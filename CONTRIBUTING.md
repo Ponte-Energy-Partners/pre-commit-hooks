@@ -1,12 +1,28 @@
-# Contributing guidelines
+# How to contribute to this repo
 
-Ensure to have installed all the pre-commit hooks.
+Required software:
+* git
+* pre-commit
+* poetry
+
+## Initial setup
+
 
 ```bash
-pre-commit install --install-hooks
+pre-commit install # for pre-commit hooks
+poetry install
 ```
 
-Instead of `$ git commit`, you can use `$ cz commit` to interactively create commit message that match the format required.
+## How to commit
 
-When preparing a new release, run `$ cz bump`.
+```bash
+cz commit # on every commit
+```
 
+
+## How to create a new release
+```bash
+NEXTVERSION=$(yes | cz bump --dry-run | sed -n 's/tag to create: \(.*\).*/\1/p')
+cz changelog --unreleased-version=$NEXTVERSION
+cz bump
+```
