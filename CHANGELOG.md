@@ -1,3 +1,9 @@
+## 1.1.0 (2024-03-21)
+
+### Feat
+
+- don't constrain to Python 3 versions
+
 ## 1.0.3 (2024-03-19)
 
 ### Fix
