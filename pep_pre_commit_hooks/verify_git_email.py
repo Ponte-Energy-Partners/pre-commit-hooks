@@ -1,4 +1,5 @@
 """Verify a user's git email address."""
+
 import re
 import subprocess
 
