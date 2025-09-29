@@ -1,3 +1,9 @@
+## 1.1.2 (2025-09-29)
+
+### Chore
+
+- Update dependencies.
+
 ## 1.1.1 (2025-03-04)
 
 ### Chore

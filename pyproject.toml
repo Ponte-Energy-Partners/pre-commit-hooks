@@ -7,7 +7,7 @@ tag_format = "$version"
 version_scheme = "pep440"
 version_provider = "poetry"
 update_changelog_on_bump = false
-version = "1.1.1"
+version = "1.1.2"
 version_files = [
     "pyproject.toml"
 ]
@@ -21,7 +21,7 @@ changelog_start_rev = "1179d2ca8ba8f989b93f24443acc118d55de3b4c"
 
 [tool.poetry]
 name = "pep-pre-commit-hooks"
-version = "1.1.1"
+version = "1.1.2"
 description = "Public pre-commit hooks"
 authors = ["Lorenz Walthert <lorenz.walthert@icloud.com>"]
 readme = "README.md"
